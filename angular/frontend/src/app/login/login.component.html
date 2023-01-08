@@ -1,0 +1,21 @@
+<form [formGroup]="loginForm" (ngSubmit)="checkUser($event)">
+  Username:
+  <input
+    type="text"
+    id="uname"
+    name="uname"
+    formControlName="uname"
+    placeholder="Username"
+  />
+  Password:
+  <input
+    type="password"
+    id="pwd"
+    name="pwd"
+    formControlName="pwd"
+    placeholder="Password"
+  />
+  <div>
+    <button type="submit">Login</button>
+  </div>
+</form>
