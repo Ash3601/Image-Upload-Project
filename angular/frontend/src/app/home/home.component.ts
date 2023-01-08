@@ -23,12 +23,16 @@ export class HomeComponent {
     this.image = event.target.files[0];
   }
 
+  onDescriptionChanged(event: any) {
+    this.description = event.target.value;
+  }
   newBook() {
     this.user = localStorage.getItem('user');
     console.log('Book function called')
     const uploadData = new FormData();
     uploadData.append('title', this.title);
-    uploadData.append('description', this.user);
+    uploadData.append('description', this.description);
+    uploadData.append('user', this.user);
     uploadData.append('image', this.image, this.image.name);
     this.http.put('http://127.0.0.1:8000/images/', uploadData).subscribe(
       data => console.log(data),

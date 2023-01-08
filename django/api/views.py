@@ -57,7 +57,9 @@ class ImageViewSet(viewsets.ModelViewSet):
         image = request.data['image']
         title = request.data['title']
         description = request.data['description']
-        Image.objects.create(image=image, title=title, description=description)
+        user = request.data['user']
+        Image.objects.create(image=image, title=title,
+                             description=description, user=user)
         return HttpResponse({'message': 'Image created'}, status=200)
 
 

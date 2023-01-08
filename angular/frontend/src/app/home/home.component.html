@@ -9,7 +9,7 @@
   <br />
   <label>
     Description:
-    <input type="text" (change)="onTitleChanged($event)" />
+    <input type="text" (change)="onDescriptionChanged($event)" />
   </label>
   <br />
   <label>
@@ -22,15 +22,17 @@
   <button (click)="getBook()">Get Books</button>
   <button (click)="logout()">Logout</button>
   <div cols="3" rowHeight="2:1" *ngFor="let i of images">
-    <div>
-      <div class="card">
-        <h2>{{ i.title }}</h2>
+    <div *ngIf="user === i.user">
+      <div>
+        <div class="card">
+          <h2>{{ i.title }}</h2>
+        </div>
       </div>
-    </div>
-    <div>
-      <div class="card">
-        <img src="{{ i.image }}" alt="picture" />
-        <h2>{{ i.name }}</h2>
+      <div>
+        <div class="card">
+          <img src="{{ i.image }}" alt="picture" />
+          <h2>{{ i.name }}</h2>
+        </div>
       </div>
     </div>
   </div>
